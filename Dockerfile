@@ -1,4 +1,4 @@
-FROM node:6.0.0
+FROM node:10.9.0-alpine
 
 MAINTAINER Orlando Hohmeier <hello@orlandohohmeier.com>
 
@@ -23,5 +23,5 @@ ENV REMOTE_REGISTRY_SKIMDB='https://skimdb.npmjs.com/registry'
 CMD mkdir -p "$DATA_DIRECTORY" chmod 700 "$DATA_DIRECTORY" \
     && chown -R local-npm "$DATA_DIRECTORY" \
     && npm start -- --remote $REMOTE_REGISTRY \
-        --remote-skim $REMOTE_REGISTRY_SKIMDB --directory $DATA_DIRECTORY \
-        --url-base $BASE_URL
+    --remote-skim $REMOTE_REGISTRY_SKIMDB --directory $DATA_DIRECTORY \
+    --url-base $BASE_URL
