@@ -5,8 +5,8 @@ MAINTAINER Orlando Hohmeier <hello@orlandohohmeier.com>
 WORKDIR /local-npm
 ADD . /local-npm/
 
-RUN groupadd -r local-npm --gid=999 \
-    && useradd -r -g local-npm --uid=999 local-npm
+RUN addgroup -S local-npm \
+    && adduser -S -G local-npm local-npm
 
 RUN npm set progress=false && npm install --no-color && npm dedupe
 
